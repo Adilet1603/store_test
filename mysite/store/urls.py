@@ -1,9 +1,10 @@
-from venv import create
-from xml.etree.ElementInclude import include
-
 from django.urls import path, include
-from .views import *
 from rest_framework import routers
+
+from .views import CategoryViewSet, UserProfileViewSet, ImageProductViewSet, OrderViewSet, OrderItemViewSet, \
+     ProductViewSet, ProductDetailViewSet, ReviewProductViewSet, RatingDetailViewSet, FavoriteItemViewSet, \
+     FavoriteViewSet, RatingViewSet, CartViewSet, CartItemViewSet
+
 router = routers.DefaultRouter()
 
 
@@ -31,9 +32,9 @@ urlpatterns = [
 
      path('accounts/', include('allauth.urls')),
 
-     path('cart/', CartViewSet.as_view({'get': 'list'}), name='cart-list'),
-     path('cart_item/', CartItemViewSet.as_view({'get': 'list'}), name='cart_item-list'),
-     path('cart_item/<int:pk>/', CartItemViewSet.as_view({'get': 'list'}), name='cart_item-list'),
+     path('cart/', CartViewSet.as_view(), name='cart-list'),
+     path('cart_item/', CartItemViewSet.as_view(), name='cart_item-list'),
+     path('cart_item/<int:pk>/', CartItemViewSet.as_view(), name='cart_item-list'),
 ]
 
 

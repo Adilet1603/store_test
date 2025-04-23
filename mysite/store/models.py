@@ -1,11 +1,8 @@
-from symtable import Class
-from wsgiref.util import request_uri
-
 from django.db import models
-from django.db.models import ForeignKey
 from phonenumber_field.modelfields import PhoneNumberField
 
 class UserProfile(models.Model):
+    objects = None
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
     age = models.PositiveSmallIntegerField()

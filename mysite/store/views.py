@@ -73,7 +73,7 @@ class OrderItemViewSet(viewsets.ModelViewSet):
     serializer_class = OrderItemSerializers
 
 
-class CartViewSet(generics.ListViewSet):
+class CartViewSet(generics.ListAPIView):
     serializer_class = CartSerializers
 
     def get_queryset(self):
